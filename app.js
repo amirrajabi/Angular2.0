@@ -15,7 +15,7 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 var angular2_1 = require("angular2/angular2");
 var HelloWorld = (function () {
     function HelloWorld() {
-        this.names = ['Amir', 'somy', 'Rahi', 'Arash'];
+        this.names = ['Amir', 'somy', 'Rahi', 'Arash', 'Azar', 'Hamid'];
     }
     HelloWorld = __decorate([
         angular2_1.Component({
