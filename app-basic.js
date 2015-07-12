@@ -1,3 +1,6 @@
+/**
+ * Created by amirrajabi on 8/07/15.
+ */
 if (typeof __decorate !== "function") __decorate = function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -10,22 +13,20 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var RedditApp = (function () {
-    function RedditApp() {
+var HelloWorld = (function () {
+    function HelloWorld() {
+        this.names = ['Amir', 'somy', 'Rahi', 'Arash', 'Azar', 'Hamid'];
     }
-    RedditApp.prototype.addArticle = function (title, link) {
-        console.log("Adding article with title", title.value, "and link", link.value);
-    };
-    RedditApp = __decorate([
+    HelloWorld = __decorate([
         angular2_1.Component({
-            selector: 'reddit'
+            selector: 'hello-world'
         }),
         angular2_1.View({
-            template: "\n         <section class=\"new-link\">\n             <div class=\"control-group\">\n                 <div><label for=\"title\">Title:</label></div>\n                 <div><input name=\"title\" #newtitle></div>\n             </div>\n             <div class=\"control-group\">\n                 <div><label for=\"link\">Link:</label></div>\n                 <div><input name=\"link\" #newlink></div>\n             </div>\n\n             <button (click)=\"addArticle(newtitle, newlink)\">Submit Link</button>\n         </section>\n      ",
-            directives: [angular2_1.For]
+            directives: [angular2_1.For],
+            template: "<ul><li *for=\"#name of names\">Hello {{ name }}</li></ul>"
         }), 
         __metadata('design:paramtypes', [])
-    ], RedditApp);
-    return RedditApp;
+    ], HelloWorld);
+    return HelloWorld;
 })();
-angular2_1.bootstrap(RedditApp);
+angular2_1.bootstrap(HelloWorld);

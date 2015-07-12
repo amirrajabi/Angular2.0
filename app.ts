@@ -1,34 +1,42 @@
 /**
- * Created by amirrajabi on 8/07/15.
+ * Created by amirrajabi on 12/07/15.
  */
-
-import{
+import {
     Component,
-    View,
     For,
-    bootstrap
-    } from "angular2/angular2"
+    View,
+    bootstrap,
+    } from "angular2/angular2";
 
-@Component({
-    selector : 'hello-world'
-})
-@View({
+ @Component({
+    selector: 'reddit'
+ })
 
-    directives: [For],
-    //template: `<article>Hello {{ name }}</article>`
-    template: `<ul><li *for="#name of names">Hello {{ name }}</li></ul>`
+ @View({
+      template: `
+         <section class="new-link">
+             <div class="control-group">
+                 <div><label for="title">Title:</label></div>
+                 <div><input name="title" #newtitle></div>
+             </div>
+             <div class="control-group">
+                 <div><label for="link">Link:</label></div>
+                 <div><input name="link" #newlink></div>
+             </div>
 
-})
+             <button (click)="addArticle(newtitle, newlink)">Submit Link</button>
+         </section>
+      `,
 
-class HelloWorld{
+     directives: [For]
+ })
 
-    //name: string;
-    names: Array;
-    constructor(){
-        //this.name = 'Amir';
-        this.names = ['Amir', 'somy', 'Rahi', 'Arash', 'Azar', 'Hamid']
-    }
+ class RedditApp {
+
+     addArticle(title, link) {
+         console.log("Adding article with title", title.value, "and link", link.value);
+     }
 
 }
 
-bootstrap(HelloWorld);
+ bootstrap(RedditApp);
